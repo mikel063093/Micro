@@ -1,46 +1,100 @@
 var localtunnel = require('localtunnel');
 var request = require('request');
 var macHelper =require('getmac');
+var express = require('express');
+var exec = require('child_process').exec;
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
-var port=80;
+var port=8080;
 var SystemId="";
-var tunnel = localtunnel(port,callback);
 
-function callback(err,tunnel){
+var app = express();
+app.use(bodyParser());
+app.use(methodOverride());
+
+var tunnel;
+registerLocalTunnel();
+var server = require('http').createServer(app);
+server.listen(port, function () {
+   console.log("listen on port"+port);
+});
+app.get("/api/secret/:secret_id",cb_secret_id);
+
+function cb_secret_id(req,res,next){
+  var secret_id= req.params.secret_id;
+  if(secret_id!=undefined && secret_id!=null ){
+     data = {
+        'status'  : 'ok',
+        'secret': secret_id
+        };
+    var command="sudo python message.py  "+secret_id; 
+    console.log("execute "+command);
+    exec(command,cb_cli_command);   
+    res.json(data);
+    next();
+  }else{
+    res.sendStatus(403);
+    next();
+  }
+}
+function cb_cli_command(error,stdout,stderr){
+  if(error){
+    console.log(error)
+  }
+  if(stdout!=null){
+    console.log(stdout)
+  }
+  if(stderr!=null){
+    console.log(stderr)
+  }
+}
+
+function registerLocalTunnel(){
+   process.nextTick(function(){
+   tunnel = localtunnel(port,callback_localtunnel);}
+  // tunnel.close(function() { registerLocalTunnel()});
+   );
+
+}
+function callback_localtunnel(err,tunnel){
+   process.nextTick(function(){
 	   if (err) {
-    		console.log(err);
-    }else{
-		console.log("localtunnel is running on"+tunnel.url);
-    macHelper.getMac(function(e,macAddress){
-      if(e){
-
+        console.log(err);
+        registerLocalTunnel();
+    		
       }else{
-        var values ={address:"OK", ip:tunnel.url, mac: macAddress};
-        console.log(values);
-      request.post({url:'http://micro-ubibus.rhcloud.com/api/auth_pi', 
-      form: values}, function(err,response,body){ 
-       if (!err && response.statusCode == 200) {
-        console.log("ok responde");
-          
+		  console.log("localtunnel is running on"+tunnel.url);
+      macHelper.getMac(cb_registerMacPy);
+    }
+  });
+}
+function cb_registerMacPy(e,macAddress){
+  process.nextTick(function(){
+    if(e){
+
+    }else{
+      var values ={address:"OK", ip:tunnel.url, mac: macAddress};
+      request.post({url:'http://micro-ubibus.rhcloud.com/api/auth_pi',form: values}, cb_registerPy);
+    }
+  });
+}
+
+function cb_registerPy(err,response,body){
+  process.nextTick(function(){
+    if (!err && response.statusCode == 200) {
+            console.log("ok responde");      
             console.log(body) 
           }else{
 
             console.log(response);
             console.log("err statusCode "+response.statusCode);
             console.log(err);
+            registerLocalTunnel();
+
           }
-          });
-      }
-    });
-
-
-	
-    }
+  });        
 }
 
-tunnel.on('close', function() {
-    // tunnels are closed
-    console.log("localtunnel stop");
-     var tunnel = localtunnel(port,callback);
-    
-});
+
+
