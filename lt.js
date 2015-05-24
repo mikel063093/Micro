@@ -10,20 +10,24 @@ var board = require('rpi-rgb-led-matrix');
 
 var width = 64
 var height = 32
-board.start(height,1,true)
+board.start(32,2,true)
 
 var canvas = new Canvas(width, height)
 var ctx = canvas.getContext('2d');
 
 // Verdana looks decent at low resolutions
-ctx.font = "11px Verdana";
+ctx.font = "12px Arial";
+rederOnDisplay("Hola Mundo.............................");
 function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear()
-    ctx.fillStyle = "black"
-    ctx.fillRect(0, 0, 32, 16)
+   ctx.fillStyle = "black"
+   ctx.fillRect(0, 0, 0, 0)
+//   ctx.rotate(.5) 	
     ctx.fillStyle = "#FF0000"
-    ctx.fillText(str, 0, 8)
+    ctx.fillText(str, 0, 16)
+    ctx.measureText(str)
+
     board.drawCanvas(ctx, width, height)
     console.log(board)  
     console.log(ctx)  
