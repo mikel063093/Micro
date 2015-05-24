@@ -8,23 +8,23 @@ var methodOverride = require('method-override');
 var Canvas = require('canvas');
 var board = require('rpi-rgb-led-matrix');
 
-var width = 64
+var width = 32
 var height = 32
 board.start(height,1,true)
 
 var canvas = new Canvas(width, height)
-var ctx = canvas.getContext('2d');
+//var ctx = canvas.getContext('2d');
 
 // Verdana looks decent at low resolutions
 ctx.font = "11px Verdana";
 function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear();
-    ctx.fillStyle = "black"
-    ctx.fillRect(0, 0, 32, 16)
-    ctx.fillStyle = "#00FF70"
-    ctx.fillText(str, 0, 8)
-    console.log(ctx)
+    
+    
+    ctx.fillStyle = "#FF0000"
+    ctx.fillText(str)
+    console.log(ctx,width,height)
     console.log("onDrwaw")
     board.drawCanvas(ctx, width, height)
   })  
