@@ -21,7 +21,8 @@ function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear();
     
-    
+    ctx.fillStyle = "black"
+    ctx.fillRect(0, 0, 32, 16)
     ctx.fillStyle = "#FF0000"
     ctx.fillText(str)
     console.log(ctx,10,20)
