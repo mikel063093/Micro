@@ -14,24 +14,60 @@ board.start(32,2,true)
 
 var canvas = new Canvas(width, height)
 var ctx = canvas.getContext('2d');
-
+var textDirection ="right";
+var textXpos = 5;
 // Verdana looks decent at low resolutions
 ctx.font = "12px Arial";
 rederOnDisplay("Hola Mundo.............................");
 function rederOnDisplay(str){
   process.nextTick(function(){
-    board.clear()
-   ctx.fillStyle = "black"
-   ctx.fillRect(0, 0, 0, 0)
-//   ctx.rotate(.5) 	
-    ctx.fillStyle = "#FF0000"
-    ctx.fillText(str, 0, 16)
-    ctx.measureText(str)
+    board.clear();
+    setInterval(animate(ctx,str), 30);
 
-    board.drawCanvas(ctx, width, height)
+//    ctx.fillStyle = "black"
+//    ctx.fillRect(0, 0, 0, 0)
+// //   ctx.rotate(.5) 	
+//     ctx.fillStyle = "#FF0000"
+    
+//     ctx.measureText(str);
+//     textDirection = "right"
+
+//     ctx.fillText(str, 0, 16)
+//     board.drawCanvas(ctx, width, height)
     console.log(board)  
     console.log(ctx)  
   })  
+}
+  function animate(context,text) {            
+            // Clear screen
+            context.clearRect(0, 0, 0, 0);
+            context.globalAlpha = 1;
+            context.fillStyle = "black"
+            context.fillRect(0, 0, 0, 0)    
+
+            var metrics = context.measureText(text);
+            var textWidth = metrics.width;
+
+            if (textDirection == "right") {
+                textXpos += 10;
+
+                if (textXpos > 500 - textWidth) {
+                    textDirection = "left";
+                }
+            }
+            else {
+                textXpos -= 10;
+
+                if (textXpos < 10) {
+                    textDirection = "right";
+                }                    
+            }
+
+            context.font = '12px Arial';
+            context.fillStyle = '#FF0000';
+            
+            context.fillText(text, textXpos, 16);
+            board.drawCanvas(context, width, height)    
 }
 
 var port=8080;
