@@ -41,11 +41,12 @@ function rederOnDisplay(str){
     console.log(context)  
   })  
 }
-  function animate() {            
+  function animate() {  
+         
             // Clear screen
             context.clearRect(0, 0, 0, 0);
-            context.globalAlpha = 1;
-            context.fillStyle = "black"
+           // context.globalAlpha = 1;
+            //context.fillStyle = "black"
             context.fillRect(0, 0, 0, 0)    
 
             var metrics = context.measureText(text);
@@ -68,8 +69,12 @@ function rederOnDisplay(str){
 
             context.font = '12px Arial';
             context.fillStyle = '#FF0000';
-            
-            context.fillText(text, textXpos, 16);
+            context.strokeStyle = 'rgba(255,0,0,255)';
+            context.beginPath();
+            context.stroke();
+            context.translate(20,-40);
+            context.fillText(text, 0, 16);
+            console.log('<img src="' + context.toDataURL() + '" />');
             board.drawCanvas(context, width, height)    
 }
 
