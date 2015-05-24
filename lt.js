@@ -16,18 +16,17 @@ var canvas = new Canvas(width, height)
 var ctx = canvas.getContext('2d');
 
 // Verdana looks decent at low resolutions
-//ctx.font = "11px Verdana";
+ctx.font = "11px Verdana";
 function rederOnDisplay(str){
   process.nextTick(function(){
-    board.clear();
-    
+    board.clear()
     ctx.fillStyle = "black"
     ctx.fillRect(0, 0, 32, 16)
     ctx.fillStyle = "#FF0000"
-    ctx.fillText(str)
-    console.log(ctx,0,8)
-    console.log("onDrwaw")
+    ctx.fillText(str, 0, 8)
     board.drawCanvas(ctx, width, height)
+    console.log(board)  
+    console.log(ctx)  
   })  
 }
 
