@@ -24,7 +24,7 @@ function rederOnDisplay(str){
     
     ctx.fillStyle = "#FF0000"
     ctx.fillText(str)
-    console.log(ctx,width,height)
+    console.log(ctx,10,20)
     console.log("onDrwaw")
     board.drawCanvas(ctx, width, height)
   })  
