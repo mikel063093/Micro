@@ -13,32 +13,35 @@ var height = 32
 board.start(32,2,true)
 
 var canvas = new Canvas(width, height)
-var ctx = canvas.getContext('2d');
+var context = canvas.getContext('2d');
 var textDirection ="right";
 var textXpos = 5;
+var text;
+
 // Verdana looks decent at low resolutions
-ctx.font = "12px Arial";
+context.font = "12px Arial";
 rederOnDisplay("Hola Mundo.............................");
 function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear();
-    setInterval(animate(ctx,str), 30);
+    text=str;
+    setInterval(animate, 30);
 
-//    ctx.fillStyle = "black"
-//    ctx.fillRect(0, 0, 0, 0)
-// //   ctx.rotate(.5) 	
-//     ctx.fillStyle = "#FF0000"
+//    context.fillStyle = "black"
+//    context.fillRect(0, 0, 0, 0)
+// //   context.rotate(.5) 	
+//     context.fillStyle = "#FF0000"
     
-//     ctx.measureText(str);
+//     context.measureText(str);
 //     textDirection = "right"
 
-//     ctx.fillText(str, 0, 16)
-//     board.drawCanvas(ctx, width, height)
+//     context.fillText(str, 0, 16)
+//     board.drawCanvas(context, width, height)
     console.log(board)  
-    console.log(ctx)  
+    console.log(context)  
   })  
 }
-  function animate(context,text) {            
+  function animate() {            
             // Clear screen
             context.clearRect(0, 0, 0, 0);
             context.globalAlpha = 1;
