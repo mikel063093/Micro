@@ -24,6 +24,8 @@ function rederOnDisplay(str){
     ctx.fillRect(0, 0, 32, 16)
     ctx.fillStyle = "#00FF70"
     ctx.fillText(str, 0, 8)
+    console.log(ctx)
+    console.log("onDrwaw")
     board.drawCanvas(ctx, width, height)
   })  
 }
@@ -52,7 +54,9 @@ function cb_secret_id(req,res,next){
         };
    // var command="sudo python message.py  "+secret_id; 
     //console.log("execute "+command);
-    //exec(command,cb_cli_command);   
+    //exec(command,cb_cli_command);
+    rederOnDisplay(secret_id)
+    console.log(data);   
     res.json(data);
     next();
   }else{
