@@ -5,6 +5,28 @@ var express = require('express');
 var exec = require('child_process').exec;
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var Canvas = require('canvas');
+var board = require('rpi-rgb-led-matrix');
+
+var width = 64
+var height = 32
+board.start(height,1,true)
+
+var canvas = new Canvas(width, height)
+var ctx = canvas.getContext('2d');
+
+// Verdana looks decent at low resolutions
+ctx.font = "11px Verdana";
+function rederOnDisplay(str){
+  process.nextTick(function(){
+    board.clear();
+    ctx.fillStyle = "black"
+    ctx.fillRect(0, 0, 32, 16)
+    ctx.fillStyle = "#00FF70"
+    ctx.fillText(str, 0, 8)
+    board.drawCanvas(ctx, width, height)
+  })  
+}
 
 var port=8080;
 var SystemId="";
@@ -28,9 +50,9 @@ function cb_secret_id(req,res,next){
         'status'  : 'ok',
         'secret': secret_id
         };
-    var command="sudo python message.py  "+secret_id; 
-    console.log("execute "+command);
-    exec(command,cb_cli_command);   
+   // var command="sudo python message.py  "+secret_id; 
+    //console.log("execute "+command);
+    //exec(command,cb_cli_command);   
     res.json(data);
     next();
   }else{
