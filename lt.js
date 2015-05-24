@@ -8,7 +8,7 @@ var methodOverride = require('method-override');
 var Canvas = require('canvas');
 var board = require('rpi-rgb-led-matrix');
 
-var width = 32
+var width = 64
 var height = 32
 board.start(height,1,true)
 
@@ -25,7 +25,7 @@ function rederOnDisplay(str){
     ctx.fillRect(0, 0, 32, 16)
     ctx.fillStyle = "#FF0000"
     ctx.fillText(str)
-    console.log(ctx,10,20)
+    console.log(ctx,0,8)
     console.log("onDrwaw")
     board.drawCanvas(ctx, width, height)
   })  
