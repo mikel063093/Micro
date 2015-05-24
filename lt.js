@@ -13,10 +13,10 @@ var height = 32
 board.start(height,1,true)
 
 var canvas = new Canvas(width, height)
-//var ctx = canvas.getContext('2d');
+var ctx = canvas.getContext('2d');
 
 // Verdana looks decent at low resolutions
-ctx.font = "11px Verdana";
+//ctx.font = "11px Verdana";
 function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear();
