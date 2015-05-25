@@ -82,12 +82,12 @@ function rederOnDisplay(str){
             if(x){
               x=false;
            // context.fillText(text, textXpos, 16);}
-         }
+              }
             else{
               x=true;
               //context.fillText("Mike", textXpos, 16);
             }
-            context.fillText(text, textXpos, 16);}
+            context.fillText(text, textXpos, 16);
             //context.translate(20,-40);
             // context.beginPath();
             // c
