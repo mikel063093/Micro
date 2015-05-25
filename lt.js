@@ -28,6 +28,7 @@ function rederOnDisplay(str){
     textXpos = 0;
     text=str;
     setInterval(animate, 30);
+ 
 
 //    context.fillStyle = "black"
 //    context.fillRect(0, 0, 0, 0)
@@ -39,11 +40,14 @@ function rederOnDisplay(str){
 
 //     context.fillText(str, 0, 16)
 //     board.drawCanvas(context, width, height)
-    console.log(board)  
-    console.log(context)  
+  
   })  
 }
-  function animate() {  
+  function animate() { 
+     
+
+ 
+
              console.log("anterior textXpos"+textXpos);
             // Clear screen
             context.clearRect(0, 0, 150, 150);
@@ -54,6 +58,11 @@ function rederOnDisplay(str){
             var metrics = context.measureText(text);
 
             var textWidth = metrics.width;
+
+            canvas = new Canvas(textWidth, height)
+            context = canvas.getContext('2d');
+              // console.log(board)  
+            console.log(context) 
             console.log({metrics_:metrics})
             console.log("textWidth "+textWidth );
 
