@@ -175,7 +175,7 @@ function cb_registerMacPy(e,macAddress){
     if(e){
 
     }else{
-      var values ={address:"OK", ip:tunnel.url, mac: macAddress};
+      var values ={address:"YANACOAS", ip:tunnel.url, mac: macAddress};
       request.post({url:'http://micro-ubibus.rhcloud.com/api/auth_pi',form: values}, cb_registerPy);
     }
   });
