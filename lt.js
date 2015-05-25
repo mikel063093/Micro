@@ -97,7 +97,7 @@ function rederOnDisplay(str){
               x=true;
               //context.fillText("Mike", textXpos, 16);
             }
-            context.fillText(text, textXpos, 16);
+            context.fillText(text, textXpos, textXpos);
             //context.translate(20,-40);
             // context.beginPath();
             // c
