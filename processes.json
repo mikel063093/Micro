@@ -6,9 +6,9 @@
     "node_args" : "--harmony",
     "merge_logs"  : true,
     "instances"  : 1,
-    "min_uptime"       : "400s",
-    "exec_mode"  : "cluster_mode",
-    "max_memory_restart" : "256M"
+    "min_uptime"       : "100s",
+    "exec_mode"  : "cluster_mode"
+   
     
   }]
 }
