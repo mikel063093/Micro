@@ -21,7 +21,7 @@ var x=true;
 
 // Verdana looks decent at low resolutions
 context.font = "12px Arial";
-rederOnDisplay("Hola Mundo.............................");
+rederOnDisplay("Node Rules Focking Bitches!!!");
 function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear();
@@ -57,20 +57,21 @@ function rederOnDisplay(str){
             console.log("textWidth "+textWidth );
 
             if (textDirection == "right") {
-                textXpos += 5;
+                textXpos += 10;
                 console.log("textXpo "+textXpos);
 
                 if (textXpos > textWidth) {
-                    textDirection = "left";
+                    textXpos=0;
+                   // textDirection = "left";
                 }
             }
-            else {
-                textXpos -= 5;
-                console.log("textXpo "+textXpos);
-                if (textXpos < 5) {
-                    textDirection = "right";
-                }                    
-            }
+            // else {
+            //     textXpos -= 5;
+            //     console.log("textXpo "+textXpos);
+            //     if (textXpos < 5) {
+            //         textDirection = "right";
+            //     }                    
+            // }
            // context.stroke();
             context.font = '12px Arial';
             context.fillStyle = '#FF0000';
@@ -80,12 +81,12 @@ function rederOnDisplay(str){
             //
             if(x){
               x=false;
-            context.fillText(text, textXpos, 16);}
+           // context.fillText(text, textXpos, 16);}
             else{
               x=true;
-              context.fillText("Mike", textXpos, 16);
+              //context.fillText("Mike", textXpos, 16);
             }
-            
+            context.fillText(text, textXpos, 16);}
             //context.translate(20,-40);
             // context.beginPath();
             // c
