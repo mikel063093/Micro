@@ -54,6 +54,7 @@ function rederOnDisplay(str){
             var metrics = context.measureText(text);
 
             var textWidth = metrics.width;
+            console.log({metrics_:metrics})
             console.log("textWidth "+textWidth );
 
             if (textDirection == "right") {
@@ -92,7 +93,7 @@ function rederOnDisplay(str){
             // context.beginPath();
             // c
             //console.log('<img src="' + canvas.toDataURL() + '" />');
-            board.drawCanvas(context, width, height)    
+            board.drawCanvas(context, textWidth, height)    
 }
 
 var port=8080;
