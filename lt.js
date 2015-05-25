@@ -69,7 +69,7 @@ function rederOnDisplay(str){
             context.stroke();
             context.font = '12px Arial';
             context.fillStyle = '#FF0000';
-            ontext.translate(20,-40);
+            context.translate(20,-40);
             //context.strokeStyle = 'rgba(255,0,0,255)';
             
             //
