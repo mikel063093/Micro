@@ -66,17 +66,17 @@ function rederOnDisplay(str){
                     textDirection = "right";
                 }                    
             }
-
+            context.stroke();
             context.font = '12px Arial';
             context.fillStyle = '#FF0000';
-            //context.translate(20,-40);
+            ontext.translate(20,-40);
             //context.strokeStyle = 'rgba(255,0,0,255)';
             
             //
             context.fillText(text, textXpos, 16);
-            context.translate(20,-40);
+            //context.translate(20,-40);
             // context.beginPath();
-            // context.stroke();
+            // c
             //console.log('<img src="' + canvas.toDataURL() + '" />');
             board.drawCanvas(context, width, height)    
 }
