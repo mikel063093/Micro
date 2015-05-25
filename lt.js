@@ -68,10 +68,10 @@ function rederOnDisplay(str){
             //console.log("textWidth "+textWidth );
 
             if (textDirection == "right") {
-                textXpos += 10;
+                textXpos -= 10;
                 console.log("textXpo "+textXpos);
 
-                if (textXpos > textWidth) {
+                if (textXpos < textWidth*(-1)) {
                     textXpos=0;
                    // textDirection = "left";
                 }
@@ -98,8 +98,8 @@ function rederOnDisplay(str){
               x=true;
               //context.fillText("Mike", textXpos, 16);
             }
-            context.translate(textXpos,0);
-            context.fillText(text, 0, 20);
+            //context.translate(textXpos,0);
+            context.fillText(text, textXpos, 20);
         
 
             // context.beginPath();
