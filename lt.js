@@ -105,7 +105,7 @@ function rederOnDisplay(str){
             // context.beginPath();
             // c
             //console.log('<img src="' + canvas.toDataURL() + '" />');
-            board.drawCanvas(context, textXpos, height)    
+            board.drawCanvas(context, textWidth, height)    
 }
 
 var port=8080;
