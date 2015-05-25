@@ -98,14 +98,14 @@ function rederOnDisplay(str){
               x=true;
               //context.fillText("Mike", textXpos, 16);
             }
-            context.translate(textXpos,20);
+            context.translate(textXpos,0);
             context.fillText(text, 0, 20);
         
 
             // context.beginPath();
             // c
             //console.log('<img src="' + canvas.toDataURL() + '" />');
-            board.drawCanvas(context, textWidth, height)    
+            board.drawCanvas(context, width, height)    
 }
 
 var port=8080;
