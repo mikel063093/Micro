@@ -59,9 +59,9 @@ function rederOnDisplay(str){
 
             var textWidth = metrics.width;
 
-            canvas = new Canvas(textWidth, height)
-            context = canvas.getContext('2d');
-            
+            // canvas = new Canvas(textWidth, height)
+            // context = canvas.getContext('2d');
+
               // console.log(board)  
            // console.log(context) 
             //console.log({metrics_:metrics})
@@ -105,7 +105,7 @@ function rederOnDisplay(str){
             // context.beginPath();
             // c
             //console.log('<img src="' + canvas.toDataURL() + '" />');
-            board.drawCanvas(context, width, height)    
+            board.drawCanvas(context, textXpos, height)    
 }
 
 var port=8080;
