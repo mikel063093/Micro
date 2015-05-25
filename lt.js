@@ -46,7 +46,7 @@ function rederOnDisplay(str){
             // Clear screen
             context.clearRect(0, 0, 0, 0);
            // context.globalAlpha = 1;
-            //context.fillStyle = "black"
+            context.fillStyle = "black"
             context.fillRect(0, 0, 0, 0)    
 
             var metrics = context.measureText(text);
@@ -69,11 +69,13 @@ function rederOnDisplay(str){
 
             context.font = '12px Arial';
             context.fillStyle = '#FF0000';
+            ctx.translate(20,-40);
             //context.strokeStyle = 'rgba(255,0,0,255)';
-            context.beginPath();
-            context.stroke();
+            
             context.translate(20,-40);
             context.fillText(text, 0, 16);
+            context.beginPath();
+            context.stroke();
             console.log('<img src="' + canvas.toDataURL() + '" />');
             board.drawCanvas(context, width, height)    
 }
