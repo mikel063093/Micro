@@ -4,7 +4,7 @@
   "description": "app micro python locatunnel",
   "main": "lt.js",
   "scripts": {
-    "start": "nodemon lt.js",
+    "start": "node lt.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -21,7 +21,7 @@ var x=true;
 
 // Verdana looks decent at low resolutions
 context.font = "12px Arial";
-rederOnDisplay("Node Rules Focking Bitches!!!");
+rederOnDisplay("");
 function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear();
