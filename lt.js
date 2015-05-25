@@ -97,8 +97,8 @@ function rederOnDisplay(str){
               x=true;
               //context.fillText("Mike", textXpos, 16);
             }
-            context.fillText(text, textXpos, textXpos);
-            //context.translate(20,-40);
+            context.fillText(text, 0, 20);
+            context.translate(textXpos,20);
             // context.beginPath();
             // c
             //console.log('<img src="' + canvas.toDataURL() + '" />');
