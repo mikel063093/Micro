@@ -61,6 +61,7 @@ function rederOnDisplay(str){
 
             canvas = new Canvas(textWidth, height)
             context = canvas.getContext('2d');
+            
               // console.log(board)  
            // console.log(context) 
             //console.log({metrics_:metrics})
@@ -98,13 +99,13 @@ function rederOnDisplay(str){
               //context.fillText("Mike", textXpos, 16);
             }
             context.translate(textXpos,20);
-            context.fillText(text, textXpos, 20);
+            context.fillText(text, 0, 20);
         
 
             // context.beginPath();
             // c
             //console.log('<img src="' + canvas.toDataURL() + '" />');
-            board.drawCanvas(context, textWidth, height)    
+            board.drawCanvas(context, width, height)    
 }
 
 var port=8080;
