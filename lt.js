@@ -27,7 +27,7 @@ function rederOnDisplay(str){
     board.clear();
     textXpos = 0;
     text=str;
-    setInterval(animate, 30);
+    setInterval(animate, 26);
  
 
 //    context.fillStyle = "black"
@@ -45,10 +45,7 @@ function rederOnDisplay(str){
 }
   function animate() { 
      
-
- 
-
-            console.log("anterior textXpos"+textXpos);
+   //console.log("anterior textXpos"+textXpos);
             // Clear screen
             context.clearRect(0, 0, 150, 150);
            // context.globalAlpha = 1;
@@ -69,7 +66,7 @@ function rederOnDisplay(str){
 
             if (textDirection == "right") {
                 textXpos -= 10;
-                console.log("textXpo "+textXpos);
+                //console.log("textXpo "+textXpos);
 
                 if (textXpos < textWidth*(-1)) {
                     textXpos=0;
@@ -84,7 +81,7 @@ function rederOnDisplay(str){
             //     }                    
             // }
            // context.stroke();
-            context.font = '12px Arial';
+            context.font = '14px Arial';
             context.fillStyle = '#FF0000';
             //context.translate(20,-40);
             //context.strokeStyle = 'rgba(255,0,0,255)';
