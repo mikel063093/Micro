@@ -24,6 +24,7 @@ rederOnDisplay("Hola Mundo.............................");
 function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear();
+    textXpos = 5;
     text=str;
     setInterval(animate, 30);
 
@@ -46,7 +47,7 @@ function rederOnDisplay(str){
             // Clear screen
             context.clearRect(0, 0, 0, 0);
            // context.globalAlpha = 1;
-            context.fillStyle = "black"
+            context.fillStyle = "#FF0000"
             context.fillRect(0, 0, 0, 0)    
 
             var metrics = context.measureText(text);
@@ -66,7 +67,7 @@ function rederOnDisplay(str){
                     textDirection = "right";
                 }                    
             }
-            context.stroke();
+           // context.stroke();
             context.font = '12px Arial';
             context.fillStyle = '#FF0000';
             //context.translate(20,-40);
