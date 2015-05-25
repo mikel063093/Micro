@@ -17,6 +17,7 @@ var context = canvas.getContext('2d');
 var textDirection ="right";
 var textXpos = 5;
 var text;
+var x=true;
 
 // Verdana looks decent at low resolutions
 context.font = "12px Arial";
@@ -45,10 +46,10 @@ function rederOnDisplay(str){
   function animate() {  
          
             // Clear screen
-            context.clearRect(0, 0, 0, 0);
+            context.clearRect(0, 0, 150, 150);
            // context.globalAlpha = 1;
             context.fillStyle = "#FF0000"
-            context.fillRect(0, 0, 0, 0)    
+            context.fillRect(0, 0, 150, 150)    
 
             var metrics = context.measureText(text);
             var textWidth = metrics.width;
@@ -74,7 +75,11 @@ function rederOnDisplay(str){
             //context.strokeStyle = 'rgba(255,0,0,255)';
             
             //
-            context.fillText(text, textXpos, 16);
+            if(x){
+            context.fillText(text, textXpos, 16);}
+            else{
+              context.fillText("Mike", textXpos, 16);}
+            }
             //context.translate(20,-40);
             // context.beginPath();
             // c
