@@ -72,8 +72,9 @@ function rederOnDisplay(str){
             //context.translate(20,-40);
             //context.strokeStyle = 'rgba(255,0,0,255)';
             
-            //context.translate(20,-40);
-            context.fillText(text, 0, 16);
+            //
+            context.fillText(text, textXpos, 16);
+            context.translate(20,-40);
             // context.beginPath();
             // context.stroke();
             //console.log('<img src="' + canvas.toDataURL() + '" />');
