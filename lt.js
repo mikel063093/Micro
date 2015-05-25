@@ -69,12 +69,12 @@ function rederOnDisplay(str){
 
             context.font = '12px Arial';
             context.fillStyle = '#FF0000';
-            context.strokeStyle = 'rgba(255,0,0,255)';
+            //context.strokeStyle = 'rgba(255,0,0,255)';
             context.beginPath();
             context.stroke();
             context.translate(20,-40);
             context.fillText(text, 0, 16);
-            console.log('<img src="' + context.toDataURL() + '" />');
+            console.log('<img src="' + canvas.toDataURL() + '" />');
             board.drawCanvas(context, width, height)    
 }
 
