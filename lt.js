@@ -66,7 +66,7 @@ function rederOnDisplay(str){
                     textDirection = "right";
                 }                    
             }
-            context.stroke();
+            //context.stroke();
             context.font = '12px Arial';
             context.fillStyle = '#FF0000';
             context.translate(20,-40);
