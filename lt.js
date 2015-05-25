@@ -57,17 +57,17 @@ function rederOnDisplay(str){
             console.log("textWidth "+textWidth );
 
             if (textDirection == "right") {
-                textXpos += 10;
+                textXpos += 5;
                 console.log("textXpo "+textXpos);
 
-                if (textXpos > 500 - textWidth) {
+                if (textXpos > textWidth) {
                     textDirection = "left";
                 }
             }
             else {
-                textXpos -= 10;
+                textXpos -= 5;
                 console.log("textXpo "+textXpos);
-                if (textXpos < 10) {
+                if (textXpos < 5) {
                     textDirection = "right";
                 }                    
             }
