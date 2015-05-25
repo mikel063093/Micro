@@ -15,7 +15,7 @@ board.start(32,2,true)
 var canvas = new Canvas(width, height)
 var context = canvas.getContext('2d');
 var textDirection ="right";
-var textXpos = 5;
+var textXpos = 0;
 var text;
 var x=true;
 
@@ -25,7 +25,7 @@ rederOnDisplay("Hola Mundo.............................");
 function rederOnDisplay(str){
   process.nextTick(function(){
     board.clear();
-    textXpos = 5;
+    textXpos = 0;
     text=str;
     setInterval(animate, 30);
 
@@ -44,18 +44,21 @@ function rederOnDisplay(str){
   })  
 }
   function animate() {  
-         
+             console.log("anterior textXpos"+textXpos);
             // Clear screen
             context.clearRect(0, 0, 150, 150);
            // context.globalAlpha = 1;
-            context.fillStyle = "#FF0000"
+            context.fillStyle = "#000000"
             context.fillRect(0, 0, 150, 150)    
 
             var metrics = context.measureText(text);
+
             var textWidth = metrics.width;
+            console.log("textWidth "+textWidth );
 
             if (textDirection == "right") {
                 textXpos += 10;
+                console.log("textXpo "+textXpos);
 
                 if (textXpos > 500 - textWidth) {
                     textDirection = "left";
@@ -63,7 +66,7 @@ function rederOnDisplay(str){
             }
             else {
                 textXpos -= 10;
-
+                console.log("textXpo "+textXpos);
                 if (textXpos < 10) {
                     textDirection = "right";
                 }                    
