@@ -8,7 +8,6 @@
     "instances"  : 1,
     "min_uptime"       : "100s",
     "exec_mode"  : "cluster_mode"
-   
     
   }]
 }
